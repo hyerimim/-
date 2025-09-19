@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Message</title>
+</head>
+<body>
+<div id="output">로딩 중...</div>
+
+<script>
+    function getMessage(name) {
+        return `Hello, ${name}...`;
+    }
+
+    function introName() {
+        const name = '한혜림';
+        return `안녕하세요, 저는 ${name}입니다.`;
+    }
+    function introMajor() {
+        const major = '컴퓨터공학';
+        const year = 3;
+        return `전공은 ${major}이고 ${year}학년입니다.`;
+    }
+    function introHobby() {
+        const hobby = '영화보기';
+        return `취미는 ${hobby}입니다.`;
+    }
+
+    const output = document.getElementById('output');
+
+    // 초기 메시지
+    output.textContent = getMessage('Hyerim');
+
+    const intros = [introName, introMajor, introHobby];
+    let idx = 0;
+    const intervalId = setInterval(() => {
+        output.textContent = intros[idx]();
+        idx = (idx + 1) % intros.length;
+    }, 3000);
+</script>
+</body>
+</html>
